@@ -28,46 +28,28 @@
             android:checkedButton="@id/btn_findword"
             android:orientation="horizontal">
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:background="@null" />
+            <View style="@style/view_margin" />
 
             <RadioButton
                 android:id="@+id/btn_findword"
                 style="@style/bottombarRadioButtonstyle"
-
                 android:background="@drawable/main_dict_rb_bg_selector" />
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:background="@null" />
+            <View style="@style/view_margin" />
 
             <RadioButton
                 android:id="@+id/btn_grammar"
                 style="@style/bottombarRadioButtonstyle"
-
                 android:background="@drawable/main_book_rb_bg_selector" />
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:background="@null" />
+            <View style="@style/view_margin" />
+
             <RadioButton
                 android:id="@+id/btn_wordmemorize"
                 style="@style/bottombarRadioButtonstyle"
-
                 android:background="@drawable/main_rem_rb_bg_selector" />
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:background="@null" />
+            <View style="@style/view_margin" />
         </RadioGroup>
     </LinearLayout>
 </LinearLayout>

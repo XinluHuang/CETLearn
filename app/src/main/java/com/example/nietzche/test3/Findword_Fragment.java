@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.nietzche.test3.dict.CollinsDict;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,6 +30,7 @@ public class Findword_Fragment extends Fragment implements View.OnClickListener 
     private EditText editText;
     private TextView textview;
     private SQLiteDatabase database;
+    private CollinsDict collins;
 
     public Findword_Fragment() {
         // Required empty public constructor
@@ -39,11 +42,7 @@ public class Findword_Fragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_findword, container, false);
         copyDB();
-        try {
-            database = SQLiteDatabase.openOrCreateDatabase(getActivity().getFilesDir().getParent() + "/databases/collins.db", null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        collins=new CollinsDict(getActivity().getFilesDir().getParent() + "/databases/collins.db");
         linearLayout = view.findViewById(R.id.line1);
         textview = view.findViewById(R.id.scrollview).findViewById(R.id.textview);
         editText = linearLayout.findViewById(R.id.edittext);
@@ -92,8 +91,7 @@ public class Findword_Fragment extends Fragment implements View.OnClickListener 
     }
 
     private void findword() {
-        WordDetail detail = new WordDetail();
-        if(!detail.find(database,editText.getText().toString())) return;
-        textview.setText(Html.fromHtml(detail.OutInHtml()));
+        if(!collins.find(editText.getText().toString())) return;
+        textview.setText(Html.fromHtml(collins.outInHtml()));
     }
 }

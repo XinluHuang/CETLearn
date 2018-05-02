@@ -6,5 +6,6 @@
     <dimen name="radiosize">60dp</dimen>
     <color name="radiobackground">#0263ff</color>
     <color name="radiobackground2">#ff1452b6</color>
+    <string name="title_activity_word_memorizing_">WordMemorizing_Act</string>
 
 </resources>

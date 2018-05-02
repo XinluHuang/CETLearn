@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    tools:context=".WordMemorize_Fragment">
+
+    <Button
+        android:id="@+id/custom_1"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="1"
+        android:text="第一关" />
+
+    <Button
+        android:id="@+id/custom_2"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="2"
+        android:text="第二关" />
+
+    <Button
+        android:id="@+id/custom_3"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="3"
+        android:text="第三关" />
+
+
+</GridLayout>
