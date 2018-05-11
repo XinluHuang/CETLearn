@@ -3,6 +3,8 @@ package com.example.nietzche.test3.dict;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.nietzche.test3.MyApplication;
+
 public class CollinsDict {
     private String word;
     private int wid;//一个word仅一个wid
@@ -15,8 +17,8 @@ public class CollinsDict {
     private String[] ExamplesCN;
     private SQLiteDatabase database;
 
-    public CollinsDict(String path) {
-        database = SQLiteDatabase.openOrCreateDatabase(path, null);
+    public CollinsDict() {
+        database = SQLiteDatabase.openOrCreateDatabase(MyApplication.getContext().getFilesDir().getParent()+"/databases/collins.db", null);
     }
 
     private static class HtmlFont {
@@ -79,6 +81,8 @@ public class CollinsDict {
                 this.ExamplesCN[i] = eidcur.getString(1);
             }
         }
+        widcur.close();
+        midcur.close();
         return true;
     }
 

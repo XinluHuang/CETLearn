@@ -12,9 +12,7 @@ public class Act_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_login);
         Bmob.initialize(this,"c2f3318aa0aec9707f8b67546a39bf5a");
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.MainActivity,new Fra_Login(),"login").commit();
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.act_login,new Fra_Login(),"login").commit();
     }
     public void toastShow(String content){
         Toast.makeText(this,content,Toast.LENGTH_SHORT).show();

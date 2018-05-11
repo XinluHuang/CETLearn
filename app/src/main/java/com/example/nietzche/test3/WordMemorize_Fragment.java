@@ -27,6 +27,11 @@ public class WordMemorize_Fragment extends Fragment implements View.OnClickListe
         view.findViewById(R.id.custom_1).setOnClickListener(this);
         view.findViewById(R.id.custom_2).setOnClickListener(this);
         view.findViewById(R.id.custom_3).setOnClickListener(this);
+        view.findViewById(R.id.custom_4).setOnClickListener(this);
+        view.findViewById(R.id.custom_5).setOnClickListener(this);
+        view.findViewById(R.id.custom_6).setOnClickListener(this);
+        view.findViewById(R.id.custom_7).setOnClickListener(this);
+        view.findViewById(R.id.custom_8).setOnClickListener(this);
         return view;
     }
 

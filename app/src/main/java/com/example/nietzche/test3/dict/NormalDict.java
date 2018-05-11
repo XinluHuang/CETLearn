@@ -5,10 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.Html;
 import android.util.Log;
 
+import com.example.nietzche.test3.MyApplication;
+
 public class NormalDict {
     private SQLiteDatabase database;
-    public NormalDict(String path){
-        database=SQLiteDatabase.openOrCreateDatabase(path,null);
+    public NormalDict(){
+        database=SQLiteDatabase.openOrCreateDatabase(MyApplication.getContext().getFilesDir().getParent()+"/databases/dict.db",null);
     }
 
     public String getMeaning(String word){

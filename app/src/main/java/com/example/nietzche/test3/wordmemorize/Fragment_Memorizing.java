@@ -48,7 +48,7 @@ public class Fragment_Memorizing extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_fragment_memorizing, container, false);
         wordlist = (ArrayList<String>) getArguments().getSerializable("wordlist");
 
-        dict = new NormalDict(getActivity().getFilesDir().getParent() + "/databases/dict.db");
+        dict = new NormalDict();
         word = view.findViewById(R.id.word);
         textviews = new TextView[4];
         progressBar=view.findViewById(R.id.progressbar);

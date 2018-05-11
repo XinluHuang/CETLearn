@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import java.util.List;
@@ -39,20 +41,23 @@ public class Fra_Login extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
-        account = view.findViewById(R.id.layout_account).findViewById(R.id.edit_account);
-        password = view.findViewById(R.id.layout_password).findViewById(R.id.edit_password);
-        rem_account = view.findViewById(R.id.rem_account);
+        View view = inflater.inflate(R.layout.login, container, false);
+        account = view.findViewById(R.id.edit_account);
+        password = view.findViewById(R.id.edit_password);
+        rem_account = view.findViewById(R.id.check_auto_login);
+        rem_password = view.findViewById(R.id.rem_password);
+        register = view.findViewById(R.id.btn_register);
         pre = getActivity().getSharedPreferences("save", Context.MODE_PRIVATE);
         skip = view.findViewById(R.id.btn_skip);
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),MainActivity.class));
+                startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
             }
         });
-        rem_password = view.findViewById(R.id.rem_password);
+
+
         String t = "";
         if ((t = pre.getString("account", null)) != null) {
             account.setText(t);
@@ -63,15 +68,36 @@ public class Fra_Login extends Fragment {
             password.setText(t);
             rem_password.setChecked(true);
         }
+
+
         login = view.findViewById(R.id.btn_login);
         register = view.findViewById(R.id.btn_register);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.MainActivity, new Fra_Register()).addToBackStack(null).commit();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.act_login, new Fra_Register()).addToBackStack(null).commit();
             }
         });
+
+        rem_account.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(!isChecked){
+                    rem_password.setChecked(false);
+                }
+            }
+        });
+        rem_password.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    rem_account.setChecked(true);
+                }
+            }
+        });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +110,7 @@ public class Fra_Login extends Fragment {
                 SharedPreferences.Editor editor = pre.edit();
                 if (rem_account.isChecked()) {
                     editor.putString("account", p.getAccount());
-                } else {
+                }else {
                     editor.remove("account");
                 }
                 if (rem_password.isChecked()) {
@@ -93,6 +119,8 @@ public class Fra_Login extends Fragment {
                     editor.remove("password");
                 }
                 editor.commit();
+
+
                 BmobQuery<Person> query = new BmobQuery<Person>();
                 query.addWhereEqualTo("account", p.getAccount());
                 query.addWhereEqualTo("password", p.getPassword());
@@ -101,17 +129,17 @@ public class Fra_Login extends Fragment {
                     @Override
                     public void done(List<Person> list, BmobException e) {
                         if (e == null && list.size() != 0) {
-                            startActivity(new Intent(getActivity(),MainActivity.class));
+                            startActivity(new Intent(getActivity(), MainActivity.class));
                             getActivity().finish();
                         } else {
-                            toastShow("Login failed");
+                            toastShow("账号不存在或密码错误");
                         }
-
-
                     }
                 });
             }
         });
+
+
         return view;
     }
 

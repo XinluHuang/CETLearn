@@ -2,6 +2,10 @@ package com.example.nietzche.test3;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,13 +31,17 @@ private Button confirm;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_register, container, false);
-        account=view.findViewById(R.id.layout_reg_account).findViewById(R.id.reg_account);
-        password=view.findViewById(R.id.layout_reg_password).findViewById(R.id.reg_password);
-        againpassword=view.findViewById(R.id.layout_again_password).findViewById(R.id.reg_again_password);
+        account=view.findViewById(R.id.reg_account).findViewById(R.id.reg_account);
+        password=view.findViewById(R.id.reg_password).findViewById(R.id.reg_password);
+        againpassword=view.findViewById(R.id.reg_again_password).findViewById(R.id.reg_again_password);
         confirm=view.findViewById(R.id.btn_register_confirm);
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(account.getText().toString().equals("") || account.getText().toString()==null){
+                    toastShow("用户名不能为空");
+                    return;
+                }
                 if(password.getText().toString().equals(againpassword.getText().toString())) {
                     Person p = new Person();
                     p.setAccount(account.getText().toString());
@@ -44,6 +52,7 @@ private Button confirm;
                             toastShow("注册成功");
                         }
                     });
+                   getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.act_login,new FragmentRegisterComplete()).commit();
                 }else {
                     toastShow("两次密码输入不正确");
                 }

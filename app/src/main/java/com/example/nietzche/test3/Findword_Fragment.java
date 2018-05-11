@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.nietzche.test3.dict.CollinsDict;
@@ -25,7 +25,7 @@ import java.io.InputStream;
  * A simple {@link Fragment} subclass.
  */
 public class Findword_Fragment extends Fragment implements View.OnClickListener {
-    private LinearLayout linearLayout;
+    private RelativeLayout relativeLayout;
     private Button button;
     private EditText editText;
     private TextView textview;
@@ -42,11 +42,12 @@ public class Findword_Fragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_findword, container, false);
         copyDB();
-        collins=new CollinsDict(getActivity().getFilesDir().getParent() + "/databases/collins.db");
-        linearLayout = view.findViewById(R.id.line1);
+        collins=new CollinsDict();
+//        collins=new CollinsDict("file:///android_asset/collins.db");  database不能打开外部文件
+        relativeLayout = view.findViewById(R.id.line1);
         textview = view.findViewById(R.id.scrollview).findViewById(R.id.textview);
-        editText = linearLayout.findViewById(R.id.edittext);
-        button = linearLayout.findViewById(R.id.button);
+        editText = relativeLayout.findViewById(R.id.edittext);
+        button = relativeLayout.findViewById(R.id.button);
         button.setOnClickListener(this);
         return view;
     }

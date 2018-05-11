@@ -31,10 +31,10 @@ private TextView worddetial;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_word_detail, container, false);
         String word=getArguments().getString("word");
-        CollinsDict dict=new CollinsDict(getActivity().getFilesDir().getParent()+"/databases/collins.db");
+        CollinsDict dict=new CollinsDict();
         dict.find(word);
 
-        detail=view.findViewById(R.id.textview_worddetail);
+        detail=view.findViewById(R.id.word_scroll).findViewById(R.id.textview_worddetail);
 
         detail.setText(Html.fromHtml(dict.outInHtml()));
         btn_continue=view.findViewById(R.id.btn_continue);

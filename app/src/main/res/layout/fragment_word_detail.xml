@@ -6,14 +6,18 @@
     android:orientation="vertical"
     tools:context=".wordmemorize.Fragment_wordDetail">
 
-
+<ScrollView
+    android:id="@+id/word_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
     <TextView
         android:id="@+id/textview_worddetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         />
 
+</ScrollView>
     <Button
         android:id="@+id/btn_continue"
         android:layout_width="match_parent"

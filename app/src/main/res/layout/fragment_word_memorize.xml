@@ -4,13 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:columnCount="4"
+    android:padding="3dp"
+
     tools:context=".WordMemorize_Fragment">
 
     <Button
         android:id="@+id/custom_1"
         style="@style/wordmemorize_btnstyle"
         android:tag="1"
-        android:text="第一关" />
+        android:text="第一关"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/custom_2"
@@ -23,6 +26,36 @@
         style="@style/wordmemorize_btnstyle"
         android:tag="3"
         android:text="第三关" />
+
+    <Button
+        android:id="@+id/custom_4"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="4"
+        android:text="第四关" />
+
+    <Button
+        android:id="@+id/custom_5"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="5"
+        android:text="第五关" />
+
+    <Button
+        android:id="@+id/custom_6"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="6"
+        android:text="第六关" />
+
+    <Button
+        android:id="@+id/custom_7"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="7"
+        android:text="第七关" />
+
+    <Button
+        android:id="@+id/custom_8"
+        style="@style/wordmemorize_btnstyle"
+        android:tag="8"
+        android:text="第八关" />
 
 
 </GridLayout>

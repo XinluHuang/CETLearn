@@ -43,6 +43,22 @@ public class WordMemorizing_Act extends AppCompatActivity{
                 case 3:
                     parser = getResources().getXml(R.xml.custom_3);
                     break;
+                case 4:
+                    parser = getResources().getXml(R.xml.custom_4);
+                    break;
+                case 5:
+                    parser = getResources().getXml(R.xml.custom_5);
+                    break;
+                case 6:
+                    parser = getResources().getXml(R.xml.custom_6);
+                    break;
+                case 7:
+                    parser = getResources().getXml(R.xml.custom_7);
+                    break;
+                case 8:
+                    parser = getResources().getXml(R.xml.custom_8);
+                    break;
+
                 default:
                     break;
             }
