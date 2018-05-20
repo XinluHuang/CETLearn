@@ -50,6 +50,14 @@
                 android:background="@drawable/main_rem_rb_bg_selector" />
 
             <View style="@style/view_margin" />
+
+            <RadioButton
+                android:id="@+id/btn_listen"
+                style="@style/bottombarRadioButtonstyle"
+                android:background="@drawable/listen" />
+
+            <View style="@style/view_margin" />
+
         </RadioGroup>
     </LinearLayout>
 </LinearLayout>

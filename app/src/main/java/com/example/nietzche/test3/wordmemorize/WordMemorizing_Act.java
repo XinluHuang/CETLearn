@@ -21,7 +21,6 @@ public class WordMemorizing_Act extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_memorizing);
-        copyDB();
         Fragment_WordList fra_wordlist=new Fragment_WordList();
         Bundle b=new Bundle();
         b.putSerializable("wordlist",getWordList());
@@ -62,7 +61,6 @@ public class WordMemorizing_Act extends AppCompatActivity{
                 default:
                     break;
             }
-
             wordlist = new MyList();
             try {
                 for (int event = parser.getEventType(); event != XmlPullParser.END_DOCUMENT; event = parser.next()) {
@@ -80,34 +78,6 @@ public class WordMemorizing_Act extends AppCompatActivity{
         return wordlist;
     }
 
-    private void copyDB() {
-        File mkdir = new File(getFilesDir().getParent(), "databases");
-        if (!mkdir.exists()) {
-            mkdir.mkdirs();
-        }
-        File destination = new File(mkdir, "dict.db");
-        FileOutputStream fos = null;
-        InputStream resinput = null;
-        if (!destination.exists()) {
-            try {
-                fos = new FileOutputStream(destination);
-                resinput = getAssets().open("dict.db");
-                byte[] bytes = new byte[2048];
-                int len = 0;
-                while ((len = resinput.read(bytes)) != -1) {
-                    fos.write(bytes, 0, len);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    fos.close();
-                    resinput.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+
 
 }

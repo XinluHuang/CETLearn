@@ -6,7 +6,7 @@
     android:columnCount="4"
     android:padding="3dp"
 
-    tools:context=".WordMemorize_Fragment">
+    tools:context=".WordMemorizeEntry_Fragment">
 
     <Button
         android:id="@+id/custom_1"

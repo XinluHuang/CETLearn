@@ -15,8 +15,9 @@ public class MyApplication extends Application {
     public void onCreate() {
         context=getApplicationContext();
         super.onCreate();
-//        copyDict();
-//        copyCollins();
+        //将字典数据库复制到databases
+        copyDict();
+        copyCollins();
     }
 
     public static Context getContext() {

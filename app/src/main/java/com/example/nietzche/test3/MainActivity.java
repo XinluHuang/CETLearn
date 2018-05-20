@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         fragment_list = new ArrayList<Fragment>();
         fragment_list.add(new Findword_Fragment());
         fragment_list.add(new Grammar_Fragment());
-        fragment_list.add(new WordMemorize_Fragment());
+        fragment_list.add(new WordMemorizeEntry_Fragment());
+        fragment_list.add(new Listen_Fragment());
+
         adapter = new FragmentPagerAdapter(this.getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -71,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             case R.id.btn_wordmemorize:
                 viewpager.setCurrentItem(2);
                 break;
+            case R.id.btn_listen:
+                viewpager.setCurrentItem(3);
+                break;
             default:
                 break;
         }
@@ -93,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             case 2:
                 radioGroup.check(R.id.btn_wordmemorize);
+                break;
+            case 3:
+                radioGroup.check(R.id.btn_listen);
                 break;
             default:
                 break;

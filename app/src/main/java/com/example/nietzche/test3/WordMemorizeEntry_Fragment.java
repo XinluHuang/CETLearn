@@ -14,9 +14,9 @@ import com.example.nietzche.test3.wordmemorize.WordMemorizing_Act;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WordMemorize_Fragment extends Fragment implements View.OnClickListener{
+public class WordMemorizeEntry_Fragment extends Fragment implements View.OnClickListener{
 
-    public WordMemorize_Fragment() {
+    public WordMemorizeEntry_Fragment() {
         // Required empty public constructor
     }
 

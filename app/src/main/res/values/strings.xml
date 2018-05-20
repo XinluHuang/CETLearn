@@ -4,8 +4,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <dimen name="radiosize">60dp</dimen>
-    <color name="radiobackground">#0263ff</color>
+    <color name="radiobackground">#609cfc</color>
     <color name="radiobackground2">#ff1452b6</color>
     <string name="title_activity_word_memorizing_">WordMemorizing_Act</string>
+    <string-array name="trump">
+        <item>安全与福祉1</item>
+        <item>安全与福祉2</item>
+        <item>安全与福祉3</item>
+    </string-array>
 
 </resources>

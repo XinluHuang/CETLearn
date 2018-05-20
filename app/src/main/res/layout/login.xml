@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fra_login"
+    android:id="@+id/login_fragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         android:src="@drawable/avatar" />
 
     <EditText
-        android:id="@+id/edit_account"
+        android:id="@+id/etAccount"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
@@ -29,7 +29,7 @@
         android:paddingLeft="8dp" />
 
     <EditText
-        android:id="@+id/edit_password"
+        android:id="@+id/etPassword"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
@@ -45,13 +45,13 @@
         android:layout_marginTop="16dp">
 
         <CheckBox
-            android:id="@+id/check_auto_login"
+            android:id="@+id/checkRememberAccount"
             android:layout_width="100dp"
             android:layout_height="32dp"
             android:text="记住账号" />
 
         <CheckBox
-            android:id="@+id/rem_password"
+            android:id="@+id/checkRememberPassword"
             android:layout_width="100dp"
             android:layout_height="32dp"
             android:layout_alignParentRight="true"
@@ -59,7 +59,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btnLogin"
         android:layout_width="320dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
@@ -69,7 +69,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00000000"
@@ -82,9 +82,9 @@
         android:layout_weight="1" />
 
     <Button
-        android:id="@+id/btn_skip"
+        android:id="@+id/btnSkip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="跳过"
+        android:text="游客登录"
         android:textSize="20sp" />
 </LinearLayout>

@@ -10,7 +10,7 @@
 
     <style name="Splash" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowBackground">@drawable/splash</item>  <!--启动屏-->
     </style>
 
 
