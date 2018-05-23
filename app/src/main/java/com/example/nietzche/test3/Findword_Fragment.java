@@ -62,7 +62,7 @@ public class Findword_Fragment extends Fragment implements View.OnClickListener 
 
 
     private void findword() {
-        if(!collins.find(editText.getText().toString())) return;
+        if(!collins.find(editText.getText().toString().trim())) return;
         textview.setText(Html.fromHtml(collins.outInHtml()));
     }
 }

@@ -30,8 +30,9 @@ public class Login_Activity extends AppCompatActivity {
             if ((tempFragment = manager.findFragmentByTag("success")) != null) {
                 manager.beginTransaction().remove(tempFragment).commit();
                 manager.popBackStack();
+                return true;
             }
-            return true;
+
             /*返回false是不吃掉，后面的监听也能得到这个事件，
             而返回true是吃掉，后面的监听就得不到这个事件了。*/
         }
