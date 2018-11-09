@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/item_newword"
+        android:icon="@drawable/ic_nav_newword_note"
+        android:title="生词本" />
+    <item
+        android:id="@+id/item_dict"
+        android:icon="@drawable/ic_dict"
+        android:title="切换单词表"/>
+    <item
+        android:id="@+id/item_switch_night"
+        android:icon="@drawable/ic_nav_night"
+        android:title="切换主题" />
+    <item
+        android:id="@+id/item_setting"
+        android:icon="@drawable/ic_nav_setting"
+        android:title="设置" />
+</menu>

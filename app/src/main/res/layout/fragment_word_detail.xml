@@ -4,24 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".wordmemorize.Fragment_wordDetail">
+    tools:context=".module.memorize.WordDetailFragment">
 
-<ScrollView
-    android:id="@+id/word_scroll"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1">
-    <TextView
-        android:id="@+id/textview_worddetail"
+    <ScrollView
+        android:id="@+id/word_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-</ScrollView>
+        <TextView
+            android:id="@+id/textview_worddetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30dp" />
+
+    </ScrollView>
+
     <Button
         android:id="@+id/btn_continue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="继续"/>
+        android:text="继续" />
 
 </LinearLayout>

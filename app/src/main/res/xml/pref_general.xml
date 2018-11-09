@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="基本设置">
+        <Preference
+            android:key="text_size"
+            android:summary="设置字体大小"
+            android:title="字体大小" />
+        <Preference
+            android:key="clear_cache"
+            android:title="清除缓存"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>

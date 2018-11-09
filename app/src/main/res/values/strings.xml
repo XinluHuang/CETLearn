@@ -1,16 +1,14 @@
 <resources>
-    <string name="app_name">英语学习</string>
+    <string name="app_name">四六级单词记忆</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <dimen name="radiosize">60dp</dimen>
-    <color name="radiobackground">#609cfc</color>
-    <color name="radiobackground2">#ff1452b6</color>
     <string name="title_activity_word_memorizing_">WordMemorizing_Act</string>
-    <string-array name="trump">
-        <item>安全与福祉1</item>
-        <item>安全与福祉2</item>
-        <item>安全与福祉3</item>
-    </string-array>
+
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="test1">test1</string>
+    <string name="test2">test2</string>
 
 </resources>
