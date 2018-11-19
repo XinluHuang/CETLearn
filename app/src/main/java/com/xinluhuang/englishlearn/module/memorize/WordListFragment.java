@@ -18,6 +18,7 @@ import com.xinluhuang.englishlearn.greendao.entity.CETWord;
 import com.xinluhuang.englishlearn.module.WordFragment;
 import com.xinluhuang.englishlearn.module.adapter.CETWordListAdapter;
 import com.xinluhuang.englishlearn.module.adapter.commomadapter.CommomViewHolder;
+import com.xinluhuang.englishlearn.util.Constant;
 import com.xinluhuang.englishlearn.util.LogUtil;
 
 import java.util.List;
@@ -48,8 +49,8 @@ public class WordListFragment extends Fragment implements View.OnClickListener,A
         if(args==null){
             args=new Bundle();
         }
-        args.putInt("type",type);
-        args.putInt("order",order);
+        args.putInt(Constant.TYPE,type);
+        args.putInt(Constant.ORDER,order);
         wordListFragment.setArguments(args);
 
         return wordListFragment;
@@ -70,10 +71,9 @@ public class WordListFragment extends Fragment implements View.OnClickListener,A
         int order=0;
         int type=0;
         if(getArguments()!=null) {
-            order = getArguments().getInt("order");
-            type=getArguments().getInt("type");
+            order = getArguments().getInt(Constant.ORDER);
+            type=getArguments().getInt(Constant.TYPE);
         }
-        LogUtil.d("type="+type+"  order="+order);
 
 
         cetHelper = CETHelper.getInstance();
@@ -92,12 +92,19 @@ public class WordListFragment extends Fragment implements View.OnClickListener,A
 
     @Override
     public void onClick(View v) {
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.act_memorize,MemorizingFragment.newInstance(wordlist)).commit();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.act_memorize,MemorizingFragment.newInstance(wordlist))
+                .commit();
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String word=(String) ((TextView)CommomViewHolder.get(view,R.id.tv_word)).getText();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.act_memorize, WordFragment.newInstance(word)).addToBackStack(null).commit();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.act_memorize, WordFragment.newInstance(word))
+                .addToBackStack(null)
+                .commit();
     }
 }

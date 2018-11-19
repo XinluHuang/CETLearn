@@ -10,5 +10,8 @@
 
     <string name="test1">test1</string>
     <string name="test2">test2</string>
+    <string name="share_app_text">来试试这个软件:四六级单词记忆</string>
+    <string name="download_code_url">https://www.coolapk.com/apk/208583</string>
+    <string name="source_code_url">https://github.com/XinluHuang/CETLearn</string>
 
 </resources>

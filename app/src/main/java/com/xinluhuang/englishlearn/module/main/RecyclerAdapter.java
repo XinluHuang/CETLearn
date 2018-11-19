@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.xinluhuang.englishlearn.R;
 import com.xinluhuang.englishlearn.module.memorize.WordMemorizingActivity;
+import com.xinluhuang.englishlearn.util.Constant;
 import com.xinluhuang.englishlearn.util.LogUtil;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
@@ -23,9 +24,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public void onClick(View v) {
             int order = Integer.parseInt(v.getTag().toString());
             Intent i = new Intent(context, WordMemorizingActivity.class);
-            i.putExtra("order", order);
-            i.putExtra("type", type);
-            i.putExtra("name", ((Button) v).getText());
+            i.putExtra(Constant.ORDER, order);
+            i.putExtra(Constant.TYPE, type);
+            i.putExtra(Constant.TITLE, ((Button) v).getText());
             context.startActivity(i);
         }
     };

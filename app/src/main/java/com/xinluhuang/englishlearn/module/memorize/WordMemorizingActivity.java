@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.xinluhuang.englishlearn.R;
+import com.xinluhuang.englishlearn.util.Constant;
 import com.xinluhuang.englishlearn.util.LogUtil;
 import com.xinluhuang.englishlearn.util.StatusBarUtil;
 
@@ -25,12 +26,16 @@ public class WordMemorizingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         StatusBarUtil.translucentStatusBar(this,true);
         StatusBarUtil.fillStatusBar(this,R.id.fill_status,getResources().getColor(R.color.colorPrimary));
-
-        getSupportFragmentManager().beginTransaction().add(R.id.container, WordListFragment.newInstance(getIntent().getIntExtra("order", 0), getIntent().getIntExtra("type", 0))).commit();
+        int order=getIntent().getIntExtra(Constant.ORDER, 0);
+        int type=getIntent().getIntExtra(Constant.TYPE, 0);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.container, WordListFragment.newInstance(order,type))
+                .commit();
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(getIntent().getStringExtra("name"));
+        getSupportActionBar().setTitle(getIntent().getStringExtra(Constant.TITLE));
     }
 
 

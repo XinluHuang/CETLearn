@@ -29,8 +29,11 @@ public class NormalDict {
         return instance;
     }
     public boolean isExist(String word){
+        boolean exist=false;
         Cursor cur = database.rawQuery("select * from " + getTable(word) + " where word=?", new String[]{word});
-        return cur.moveToFirst();
+        exist=cur.moveToFirst();
+        cur.close();
+        return exist;
     }
 
     public DictBean getDictBean(String word) {
@@ -42,6 +45,7 @@ public class NormalDict {
         if (cur.moveToFirst()) {
             dictBean = new DictBean(cur.getInt(0), cur.getString(1), cur.getString(2), cur.getString(3), cur.getString(4));
         }
+        cur.close();
         return dictBean;
     }
 

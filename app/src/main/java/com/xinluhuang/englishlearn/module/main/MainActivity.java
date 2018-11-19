@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -153,6 +155,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         recyclerAdapter = new RecyclerAdapter(this, custom, type);
         recyclerView.setAdapter(recyclerAdapter);
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
     }
 
     private void initNavigationView() {
@@ -200,9 +218,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_setting:
                         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                         break;
+                    case R.id.item_share:
+                        Intent shareIntent = new Intent()
+                                .setAction(Intent.ACTION_SEND)
+                                .setType("text/plain")
+                                .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_app_text) + getString(R.string.download_code_url));
+                        startActivity(Intent.createChooser(shareIntent, "分享"));
                     default:
                         break;
                 }
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return false;
             }
         });

@@ -12,4 +12,11 @@
             />
 
     </PreferenceCategory>
+    <PreferenceCategory android:title="关于">
+        <Preference
+            android:key="sourceCode"
+            android:title="源代码"
+            android:summary="@string/source_code_url"
+            />
+    </PreferenceCategory>
 </PreferenceScreen>

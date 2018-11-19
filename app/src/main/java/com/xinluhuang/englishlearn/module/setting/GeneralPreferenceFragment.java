@@ -1,5 +1,7 @@
 package com.xinluhuang.englishlearn.module.setting;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -50,6 +52,13 @@ public class GeneralPreferenceFragment extends PreferenceFragment {
             Snackbar.make(getView(), "清理成功", Snackbar.LENGTH_SHORT).show();
             clearCache.setSummary(getCacheSizeString());
             return true;
+        });
+        findPreference("sourceCode").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                getActivity().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.source_code_url))));
+                return true;
+            }
         });
     }
 
